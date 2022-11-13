@@ -79,7 +79,6 @@ add_action( 'init', 'adminsp_disable_heartbeat_unless_post_edit_screen', 1 );
 
 // Disabling External HTTP API calls in WordPress Backend
 // add_filter( 'pre_http_request', '__return_true', 100 );
-
 add_action( 'muplugins_loaded', 'adminsp_block_external_if_not_dashboard' );
 function adminsp_block_external_if_not_dashboard() {
 
@@ -96,3 +95,15 @@ function adminsp_block_external_if_not_dashboard() {
         define( 'WP_ACCESSIBLE_HOSTS', 'api.wordpress.org' );
     }
 }
+
+
+// Loading JQuery via Google API
+function adminsp_jquery_load_from_google_api() {
+ 
+if( !wp_script_is('jquery-ui') ) { 
+        wp_enqueue_script( 'jquery-ui' , 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
+}
+ 
+}
+ 
+add_action( 'wp_enqueue_scripts', 'adminsp_jquery_load_from_google_api' );
