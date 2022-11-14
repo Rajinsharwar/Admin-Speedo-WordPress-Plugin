@@ -8,6 +8,10 @@
  * Text Domain: adminsp
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 // Moving JQuery to the Footer
 function adminsp_move_jquery_to_footer() {
     wp_scripts()->add_data( 'jquery', 'group', 1 );
