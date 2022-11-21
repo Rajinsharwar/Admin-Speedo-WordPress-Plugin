@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Admin Speedo
+ * Plugin Name: Admin Speedo | Drastically speed up your WordPress admin dashboard
  * Description: A super light-weight WordPress plugin to automatically and drastically improve loading time for your WordPress admin dashboard. No configurations needed. Just activate it, and your admin panel is boosted.
  * Author: Rajin Sharwar
  * Author URI: https://linkedin.com/in/rajinsharwar
