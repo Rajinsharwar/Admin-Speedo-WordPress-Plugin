@@ -101,13 +101,13 @@ function adminsp_block_external_if_not_dashboard() {
 }
 
 
-// Loading JQuery via Google API
-function adminsp_jquery_load_from_google_api() {
+// // Loading JQuery via Google API
+// function adminsp_jquery_load_from_google_api() {
  
-if( !wp_script_is('jquery-ui') ) { 
-        wp_enqueue_script( 'jquery-ui' , 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
-}
+// if( !wp_script_is('jquery-ui') ) { 
+//         wp_enqueue_script( 'jquery-ui' , 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
+// }
  
-}
+// }
  
-add_action( 'wp_enqueue_scripts', 'adminsp_jquery_load_from_google_api' );
+// add_action( 'wp_enqueue_scripts', 'adminsp_jquery_load_from_google_api' );
