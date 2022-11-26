@@ -1,6 +1,6 @@
 === Admin Speedo ===
 Contributors: rajinsharwar
-Tags: slow, alow admin dashboard
+Tags: slow, slow admin dashboard, slow dashboard
 Requires at least: 3.9
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -19,7 +19,7 @@ Please follow the below steps for installing this plugin:-
 2. In the Search Box, search for \"Admin Speedo\"
 3. Besides the plugin named \"Admin Speedo\", click Install
 4. After the installation has been completed, click Activate.
-5. The plugin is now activated and now will show the current environment on the ADMIN toolbar
+5. The plugin is now activated and now will boost up your Admin Dashboard.
 
 <strong> Manual Installation: </strong>
 1. Download the plugin\'s zip file by clicking on Download from the above of this page
@@ -28,16 +28,18 @@ Please follow the below steps for installing this plugin:-
 3. Upload the zip you downloaded
 4. Click on Upload.
 5. After the plugin is uploaded, click on Activate.
-6. The plugin is now activated and now will show the current environment on the ADMIN toolbar
+6. The plugin is now activated and now will boost up your Admin Dashboard.
 
 == Frequently Asked Questions ==
 
 = Will this plugin work with sort fo websites? =
-Yes, this plugin will wokr with any sorts of websites.
+Yes, this plugin will work with any sorts of websites.
 
 = Is any configurations needed? =
 No configurations is need. Just activate it, and it's done :)
 
+= Does this plugin works with multi-sites? =
+We haven't yet tested our plugin fully with multi-sites. But you can try it out in your multi-site, and don't worry about breaking you site. Just deactivate the plugin, and your site will be back to normal.
 
 
 == Screenshots ==
