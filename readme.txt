@@ -32,7 +32,7 @@ Please follow the below steps for installing this plugin:-
 
 == Frequently Asked Questions ==
 
-= Will this plugin work with sort fo websites? =
+= Will this plugin work with any sort of websites? =
 Yes, this plugin will work with any sorts of websites.
 
 = Is any configurations needed? =
