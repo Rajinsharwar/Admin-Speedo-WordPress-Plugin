@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-A super light-weight WordPress plugin to automatically and drastically improve loading time for your WordPress admin dashboard. No configurations needed. Just activate it, and your admin panel is boosted
+Speed-up your slow WordPress Admin Dashboard with one click. Our plugin automatically and drastically improve loading time for your WordPress admin dashboard within seconds. Our plugin add most of the recommended optimization functions for your WordPress admin, and reduces bloat of yur dashboard. Our plugin also greatly works with reducing bloat of most of the popular plugins like Woocommerce and Elementor. And the best part of it is, no configurations is needed. Just activate it, and your Admin dashboard will be boosted.
 
 == Installation ==
 Please follow the below steps for installing this plugin:-
