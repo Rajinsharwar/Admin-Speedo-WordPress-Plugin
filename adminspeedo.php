@@ -64,6 +64,9 @@ add_action( 'wp_dashboard_setup', function()
     remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
 } );
 
+//Turning the Template editor off
+
+remove_theme_support('block-templates');
 
 // Limiting WordPress Heartbeat
 
@@ -81,6 +84,10 @@ function adminsp_disable_heartbeat_unless_post_edit_screen() {
 }
 add_action( 'init', 'adminsp_disable_heartbeat_unless_post_edit_screen', 1 );
 
+//Turning off Jetpack promotions
+
+add_filter('jetpack_just_in_time_msgs', '__return_false', 20);
+add_filter('jetpack_show_promotions', '__return_false', 20);
 
 // Disabling External HTTP API calls in WordPress Backend
 
@@ -104,8 +111,145 @@ function adminsp_block_external_if_not_dashboard() {
 
 //Blocking the unwanted admin notices
 
+add_action('in_admin_header', 'adminsp_noticehider', 999);
+
 function adminsp_noticehider(){
     remove_all_actions( 'user_admin_notices' );
     remove_all_actions( 'admin_notices' );
 }
-add_action('in_admin_header', 'adminsp_noticehider', 99);
+
+
+
+// optimizing Marketing Hub
+
+add_filter('woocommerce_marketing_menu_items', '__return_empty_array');
+
+
+//Removing Woocommerce promotional admin notice
+
+add_filter('woocommerce_helper_suppress_admin_notices', '__return_true');
+
+//Turning metabox off
+
+add_action('wp_dashboard_setup', 'adminsp_disable_woocommerce_status');
+
+function adminsp_disable_woocommerce_status()
+{
+    remove_meta_box('woocommerce_dashboard_status', 'dashboard', 'normal');
+}
+
+    
+//Turning off Woo Fragments
+
+add_action('wp_enqueue_scripts', 'adminsp_disable_woocommerce_cart_fragments', 70);
+
+function adminsp_disable_woocommerce_cart_fragments()
+{
+    if (function_exists('is_woocommerce')) {
+        wp_dequeue_script('wc-cart-fragments');
+    }
+}
+
+
+//Turning off setup dash for Woocommerce
+
+add_action('wp_dashboard_setup', 'disable_admin_dashboard_setup_widget', 80);
+
+function disable_admin_dashboard_setup_widget()
+{
+    remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal');
+}
+
+    
+
+//Turning off marketplace suggestions for Woo
+
+add_filter('woocommerce_allow_marketplace_suggestions', '__return_false', 999);
+
+
+//Turning off Woo widgets
+
+add_action('widgets_init', 'adminsp_disable_woocommerce_widgets', 90);
+    
+function adminsp_disable_woocommerce_widgets()
+{
+
+    unregister_widget('WC_Widget_Products');
+    unregister_widget('WC_Widget_Product_Categories');
+    unregister_widget('WC_Widget_Product_Tag_Cloud');
+    unregister_widget('WC_Widget_Product_Search');
+    unregister_widget('WC_Widget_Top_Rated_Products');
+    unregister_widget('WC_Widget_Rating_Filter');
+    unregister_widget('WC_Widget_Cart');
+    unregister_widget('WC_Widget_Recently_Viewed');
+    unregister_widget('WC_Widget_Layered_Nav');
+    unregister_widget('WC_Widget_Layered_Nav_Filters');
+    unregister_widget('WC_Widget_Price_Filter');
+    unregister_widget('WC_Widget_Recent_Reviews');
+    unregister_widget('WC_Widget_Cart');
+}
+
+
+//Turning off WP Pass Strength meter
+
+add_action('wp_print_scripts', 'adminsp_disable_password_strength_meter', 999);
+
+function adminsp_disable_password_strength_meter()
+{
+    global $wp;
+
+    $wp_check = isset($wp->query_vars['lost-password']) || (isset($_GET['action']) && $_GET['action'] === 'lostpassword') || is_page('lost_password');
+
+    $wc_check = (class_exists('WooCommerce') && (is_account_page() || is_checkout()));
+
+    if (!$wp_check && !$wc_check) {
+        if (wp_script_is('zxcvbn-async', 'enqueued')) {
+            wp_dequeue_script('zxcvbn-async');
+        }
+
+        if (wp_script_is('password-strength-meter', 'enqueued')) {
+            wp_dequeue_script('password-strength-meter');
+        }
+
+        if (wp_script_is('wc-password-strength-meter', 'enqueued')) {
+            wp_dequeue_script('wc-password-strength-meter');
+        }
+    }
+}
+
+
+//Turning off Elementor widgets dash
+
+add_action('wp_dashboard_setup', 'disable_elementor_dashboard_overview_widget', 80);
+
+function disable_elementor_dashboard_overview_widget()
+    {
+        remove_meta_box('e-dashboard-overview', 'dashboard', 'normal');
+    }
+
+
+//Cleaning the transients every 48 hours
+
+function adminsp_custom_cron_schedule( $schedules ) {
+$schedules['every_two_days'] = array(
+    'interval' => 172800, // Every 48 hours
+    'display'  => __( 'Every 48 hours' ),
+);
+return $schedules;
+}
+add_filter( 'cron_schedules', 'adminsp_custom_cron_schedule' );
+
+//Schedule the action if it's not already scheduled
+if ( ! wp_next_scheduled( 'adminsp_cron_hook' ) ) {
+wp_schedule_event( time(), 'every_two_days', 'adminsp_cron_hook' );
+}
+
+//Hook into the action that'll fire every 48 hours
+ add_action( 'adminsp_cron_hook', 'adminsp_cron_function' );
+
+//Function of deleting transients via cron
+function adminsp_cron_function() {
+    global $wpdb; 
+    $sql = 'DELETE FROM ' . $wpdb->options . ' WHERE option_name LIKE ("_transient_%") or (option_name LIKE "_site_transient_%")'; 
+    $wpdb->query($sql); 
+}
