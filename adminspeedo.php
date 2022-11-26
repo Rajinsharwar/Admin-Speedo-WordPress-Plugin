@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Admin Speedo
- * Description: A super light-weight WordPress plugin to automatically and drastically improve loading time for your WordPress admin dashboard. No configurations needed. Just activate it, and your admin panel is boosted.
+ * Description: A super light-weight WordPress plugin to automatically and drastically improve loading time for your WordPress admin dashboard. No configurations needed. Just activate it, and your admin panel will be boosted.
  * Author: Rajin Sharwar
  * Author URI: https://linkedin.com/in/rajinsharwar
  * Version: 1.0.0
@@ -66,6 +66,7 @@ add_action( 'wp_dashboard_setup', function()
 
 
 // Limiting WordPress Heartbeat
+
 function adminsp_optimize_heartbeat_settings( $settings ) {
     $settings['autostart'] = false;
     $settings['interval'] = 60;
@@ -82,7 +83,7 @@ add_action( 'init', 'adminsp_disable_heartbeat_unless_post_edit_screen', 1 );
 
 
 // Disabling External HTTP API calls in WordPress Backend
-// add_filter( 'pre_http_request', '__return_true', 100 );
+
 add_action( 'muplugins_loaded', 'adminsp_block_external_if_not_dashboard' );
 function adminsp_block_external_if_not_dashboard() {
 
@@ -101,13 +102,10 @@ function adminsp_block_external_if_not_dashboard() {
 }
 
 
-// // Loading JQuery via Google API
-// function adminsp_jquery_load_from_google_api() {
- 
-// if( !wp_script_is('jquery-ui') ) { 
-//         wp_enqueue_script( 'jquery-ui' , 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
-// }
- 
-// }
- 
-// add_action( 'wp_enqueue_scripts', 'adminsp_jquery_load_from_google_api' );
+//Blocking the unwanted admin notices
+
+function adminsp_noticehider(){
+    remove_all_actions( 'user_admin_notices' );
+    remove_all_actions( 'admin_notices' );
+}
+add_action('in_admin_header', 'adminsp_noticehider', 99);
