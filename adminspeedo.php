@@ -253,3 +253,52 @@ function adminsp_cron_function() {
     $sql = 'DELETE FROM ' . $wpdb->options . ' WHERE option_name LIKE ("_transient_%") or (option_name LIKE "_site_transient_%")'; 
     $wpdb->query($sql); 
 }
+
+// Remove Link rel=shortlink from http
+remove_action('template_redirect', 'wp_shortlink_header', 11);
+//Remove WordPress version
+remove_action('wp_head', 'wp_generator');
+//Remove RSD Link
+remove_action('wp_head', 'rsd_link');
+//Remove WLW Link
+remove_action('wp_head', 'wlwmanifest_link');
+
+//Defer pasing of JS
+function adminsp_defer_parsing_of_js( $url ) {
+    if ( is_user_logged_in() ) return $url; //don't break WP Admin
+    if ( FALSE === strpos( $url, '.js' ) ) return $url;
+    if ( strpos( $url, 'jquery.js' ) ) return $url;
+    return str_replace( ' src', ' defer src', $url );
+}
+add_filter( 'script_loader_tag', 'adminsp_defer_parsing_of_js', 10 );
+
+//Removing Emojis
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+
+//Removing Query Strings from Static resources
+function adminsp_remove_script_version( $src ){ 
+    $parts = explode( '?', $src );  
+    return $parts[0]; 
+} 
+add_filter( 'script_loader_src', 'adminsp_remove_script_version', 15, 1 ); 
+add_filter( 'style_loader_src', 'adminsp_remove_script_version', 15, 1 );
+
+//Disabling XML-RPC API
+add_filter('xmlrpc_enabled', '__return_false');
+
+//Remove Admin footer Text
+add_filter( 'admin_footer_text', '__return_false' );
+
+//Remove S.W.org DNS prefetch
+add_action( 'init', 'adminsp_remove_dns_prefetch' );
+
+function  adminsp_remove_dns_prefetch () {
+   remove_action( 'wp_head', 'wp_resource_hints', 2, 99 );
+}
