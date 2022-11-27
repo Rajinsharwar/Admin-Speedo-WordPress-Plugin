@@ -4,7 +4,7 @@
  * Description: Speed-up your slow WordPress Admin Dashboard with one click. Just activate it, and your admin panel will be boosted.
  * Author: Rajin Sharwar
  * Author URI: https://linkedin.com/in/rajinsharwar
- * Version: 1.0.0
+ * Version: 1.0.1
  * Text Domain: adminsp
  */
 
@@ -139,18 +139,6 @@ function adminsp_disable_woocommerce_status()
 }
 
     
-//Turning off Woo Fragments
-
-add_action('wp_enqueue_scripts', 'adminsp_disable_woocommerce_cart_fragments', 70);
-
-function adminsp_disable_woocommerce_cart_fragments()
-{
-    if (function_exists('is_woocommerce')) {
-        wp_dequeue_script('wc-cart-fragments');
-    }
-}
-
-
 //Turning off setup dash for Woocommerce
 
 add_action('wp_dashboard_setup', 'disable_admin_dashboard_setup_widget', 80);
@@ -263,7 +251,7 @@ remove_action('wp_head', 'rsd_link');
 //Remove WLW Link
 remove_action('wp_head', 'wlwmanifest_link');
 
-//Defer pasing of JS
+//Defer parsing of JS
 function adminsp_defer_parsing_of_js( $url ) {
     if ( is_user_logged_in() ) return $url; //don't break WP Admin
     if ( FALSE === strpos( $url, '.js' ) ) return $url;
