@@ -4,13 +4,13 @@ Tags: slow, slow admin dashboard, slow dashboard
 Requires at least: 3.9
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 AdminSpeedo is a simple method of boosting your WordPress admin dashboard and freeing your site code from unnecessary and not needed items.
-This plugin automatically and drastically improve loading time for your WordPress admin dashboard within seconds. It adds most of the recommended optimization functions for your WordPress admin, and reduces bloat of your dashboard. This plugin will also help to reduce bloating of most of the popular plugins like Woocommerce and Elementor. And the best part of it is, no configurations is needed. Just activate it, and your Admin dashboard will be boosted.
+This plugin drastically improve loading time for your WordPress admin dashboard within seconds. It adds most of the recommended optimization functions for your WordPress admin, and reduces bloat of your dashboard. This plugin will also help to reduce bloating of most of the popular plugins like Woocommerce, Elementor and Jetpack. Easily manage the settings of teh plugin form the 'Admin Speedo' admin menu.
 
 ==Functions==
 * Moves JQuery to Footer for fast loading.
@@ -68,8 +68,8 @@ Please follow the below steps for installing this plugin:-
 = Will this plugin work with any sort of websites? =
 Yes, this plugin will work with any sorts of websites.
 
-= Is any configurations needed? =
-No configurations is need. Just activate it, and it's done :)
+= How can i configure the plugin? =
+After the plugin is activated, a menu named "Admin Speedo" will be created. You can manage all the settings from there.
 
 = Does this plugin works with multi-sites? =
 We haven't yet tested our plugin fully with multi-sites. But you can try it out in your multi-site, and don't worry about breaking you site. Just deactivate the plugin, and your site will be back to normal.
@@ -77,3 +77,10 @@ We haven't yet tested our plugin fully with multi-sites. But you can try it out 
 
 == Screenshots ==
 1. Admin View
+
+== Changelog ==
+
+= 1.0.1 (2022-11-27) =
+- Adding the initial version.
+= 2.0.0 (2022-12-07) =
+- NEWEST UPDATE>>> Added Admin Menu so that Admin can manage all options :).
