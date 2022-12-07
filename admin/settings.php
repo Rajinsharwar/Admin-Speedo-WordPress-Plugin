@@ -8,7 +8,7 @@ function admin_speedo_settings(){
     ?>
     
     <div class="wrap">
-    <h1><?php echo esc_html( "Select Page" ); ?></h1>
+    <h1><?php echo esc_html( "Manage Settings" ); ?></h1>
     </div>
     </br>
     </br>
@@ -17,7 +17,7 @@ function admin_speedo_settings(){
 
     <?php
     print(
-        __( 'Homepage for Logged IN user: ' ));
+        __( 'Select the options which you want to optimize (If you feel any changes here is not taking place, please refresh this page after hitting save) ' ));
         ?>
     <form method=post>
     </br>
@@ -36,9 +36,6 @@ function admin_speedo_settings(){
     ?> value='yes'> <?php 
     esc_attr_e( 'Move JQuery to Footer' );
     ?></label></br>
-    <!-- <p><?php 
-    _e( 'The next time any user with the Role set as Subscriber, Contributor, Author, or Editor access the WordPress back-end, they will not be prompted to update the WordPress core. The notification will continue to display for admin users.', 'disable-dashboard-for-woocommerce' );
-    ?></p> -->
     </br>
     <?php
     if(!empty($_POST['adminsp_reduce_queried_fields'])) {

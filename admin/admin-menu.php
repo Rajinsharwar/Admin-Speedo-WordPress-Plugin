@@ -17,7 +17,7 @@ function adminsp_menu(){
         'manage_options', // user capabilities
         'admin_speedo', // page slug
         'admin_speedo_settings', // Function to print the page content
-        'dashicons-shortcode', // icon (from Dashicons)
+        'dashicons-controls-forward', // icon (from Dashicons)
         75 // menu position
     );
 }
