@@ -41,7 +41,7 @@ This plugin drastically improve loading time for your WordPress admin dashboard 
 * Turns off Widgets for Woocommerce.
 * Turns off Elementor Widgets dashboards.
 
-= If you website utilizes any of the above function, you may choose to turn off of these optmizations by commenting in code. If you are unsure, about how you should do that, you can contact me via the support forum. =
+= If you website utilizes any of the above function, you may choose to turn off of these optmizations from the settings page of the plugin. If you are unsure, about how you should do that, you can contact me via the support forum. =
 
 
 == Installation ==
