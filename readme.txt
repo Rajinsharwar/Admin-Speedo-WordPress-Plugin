@@ -4,7 +4,7 @@ Tags: slow, slow admin dashboard, slow dashboard
 Requires at least: 3.9
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,7 +80,9 @@ We haven't yet tested our plugin fully with multi-sites. But you can try it out 
 
 == Changelog ==
 
-= 1.0.1 (2022-11-27) =
-- Adding the initial version.
+= 2.1.0 (2022-12-08) =
+- Added new security patch.
 = 2.0.0 (2022-12-07) =
 - NEWEST UPDATE>>> Added Admin Menu so that Admin can manage all options :).
+= 1.0.1 (2022-11-27) =
+- Adding the initial version.

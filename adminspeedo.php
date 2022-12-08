@@ -4,7 +4,7 @@
  * Description: Speed-up your slow WordPress Admin Dashboard with one click. Turn off most of the unnecessary opions for your admin panel.
  * Author: Rajin Sharwar
  * Author URI: https://linkedin.com/in/rajinsharwar
- * Version: 2.0.0
+ * Version: 2.1.0
  * Text Domain: adminsp
  */
 

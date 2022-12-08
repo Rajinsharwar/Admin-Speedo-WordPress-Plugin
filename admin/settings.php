@@ -25,7 +25,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_jquery_to_footer'])) {
           
-        $recieved1=$_POST['adminsp_jquery_to_footer'];
+        $recieved1=sanitize_text_field($_POST['adminsp_jquery_to_footer']);
             update_option('adminsp_jquery_to_footer', $recieved1, $autoload = 'yes');  
           }
     $value1 = get_option( 'adminsp_jquery_to_footer' );
@@ -40,7 +40,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_reduce_queried_fields'])) {
           
-        $recieved2=$_POST['adminsp_reduce_queried_fields'];
+        $recieved2=sanitize_text_field($_POST['adminsp_reduce_queried_fields']);
             update_option('adminsp_reduce_queried_fields', $recieved2, $autoload = 'yes');  
           }
     $value2 = get_option( 'adminsp_reduce_queried_fields' );
@@ -56,7 +56,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_admin_widgets'])) {
           
-        $recieved3=$_POST['adminsp_remove_admin_widgets'];
+        $recieved3=sanitize_text_field($_POST['adminsp_remove_admin_widgets']);
             update_option('adminsp_remove_admin_widgets', $recieved3, $autoload = 'yes');  
           }
     $value3 = get_option( 'adminsp_remove_admin_widgets' );
@@ -71,7 +71,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_template_editor'])) {
           
-        $recieved4=$_POST['adminsp_remove_template_editor'];
+        $recieved4=sanitize_text_field($_POST['adminsp_remove_template_editor']);
             update_option('adminsp_remove_template_editor', $recieved4, $autoload = 'yes');  
           }
     $value4 = get_option( 'adminsp_remove_template_editor' );
@@ -86,7 +86,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_limit_wp_heartbeat'])) {
           
-        $recieved5=$_POST['adminsp_limit_wp_heartbeat'];
+        $recieved5=sanitize_text_field($_POST['adminsp_limit_wp_heartbeat']);
             update_option('adminsp_limit_wp_heartbeat', $recieved5, $autoload = 'yes');  
           }
     $value5 = get_option( 'adminsp_limit_wp_heartbeat' );
@@ -101,7 +101,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_turn_off_jetpack_promo'])) {
           
-        $recieved6=$_POST['adminsp_turn_off_jetpack_promo'];
+        $recieved6=sanitize_text_field($_POST['adminsp_turn_off_jetpack_promo']);
             update_option('adminsp_turn_off_jetpack_promo', $recieved6, $autoload = 'yes');  
           }
     $value6 = get_option( 'adminsp_turn_off_jetpack_promo' );
@@ -116,7 +116,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_turn_off_ext_http_calls'])) {
           
-        $recieved7=$_POST['adminsp_turn_off_ext_http_calls'];
+        $recieved7=sanitize_text_field($_POST['adminsp_turn_off_ext_http_calls']);
             update_option('adminsp_turn_off_ext_http_calls', $recieved7, $autoload = 'yes');  
           }
     $value7 = get_option( 'adminsp_turn_off_ext_http_calls' );
@@ -131,7 +131,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_admin-notices'])) {
           
-        $recieved8=$_POST['adminsp_remove_admin-notices'];
+        $recieved8=sanitize_text_field($_POST['adminsp_remove_admin-notices']);
             update_option('adminsp_remove_admin-notices', $recieved8, $autoload = 'yes');  
           }
     $value8 = get_option( 'adminsp_remove_admin-notices' );
@@ -147,7 +147,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_marketing_hub'])) {
           
-        $recieved9=$_POST['adminsp_remove_marketing_hub'];
+        $recieved9=sanitize_text_field($_POST['adminsp_remove_marketing_hub']);
             update_option('adminsp_remove_marketing_hub', $recieved9, $autoload = 'yes');  
           }
     $value9 = get_option( 'adminsp_remove_marketing_hub' );
@@ -163,7 +163,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_woo_metabox'])) {
           
-        $recieved10=$_POST['adminsp_remove_woo_metabox'];
+        $recieved10=sanitize_text_field($_POST['adminsp_remove_woo_metabox']);
             update_option('adminsp_remove_woo_metabox', $recieved10, $autoload = 'yes');  
           }
     $value10 = get_option( 'adminsp_remove_woo_metabox' );
@@ -179,7 +179,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_disable_setup_dash_woo'])) {
           
-        $recieved11=$_POST['adminsp_disable_setup_dash_woo'];
+        $recieved11=sanitize_text_field($_POST['adminsp_disable_setup_dash_woo']);
             update_option('adminsp_disable_setup_dash_woo', $recieved11, $autoload = 'yes');  
           }
     $value11 = get_option( 'adminsp_disable_setup_dash_woo' );
@@ -195,7 +195,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_marketplace_sugg_woo'])) {
           
-        $recieved12=$_POST['adminsp_remove_marketplace_sugg_woo'];
+        $recieved12=sanitize_text_field($_POST['adminsp_remove_marketplace_sugg_woo']);
             update_option('adminsp_remove_marketplace_sugg_woo', $recieved12, $autoload = 'yes');  
           }
     $value12 = get_option( 'adminsp_remove_marketplace_sugg_woo' );
@@ -211,7 +211,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_woo_widgets'])) {
           
-        $recieved13=$_POST['adminsp_remove_woo_widgets'];
+        $recieved13=sanitize_text_field($_POST['adminsp_remove_woo_widgets']);
             update_option('adminsp_remove_woo_widgets', $recieved13, $autoload = 'yes');  
           }
     $value13 = get_option( 'adminsp_remove_woo_widgets' );
@@ -227,7 +227,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_wp_pass_meter'])) {
           
-        $recieved14=$_POST['adminsp_remove_wp_pass_meter'];
+        $recieved14=sanitize_text_field($_POST['adminsp_remove_wp_pass_meter']);
             update_option('adminsp_remove_wp_pass_meter', $recieved14, $autoload = 'yes');  
           }
     $value14 = get_option( 'adminsp_remove_wp_pass_meter' );
@@ -243,7 +243,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_elementor_widg_dash'])) {
           
-        $recieved15=$_POST['adminsp_remove_elementor_widg_dash'];
+        $recieved15=sanitize_text_field($_POST['adminsp_remove_elementor_widg_dash']);
             update_option('adminsp_remove_elementor_widg_dash', $recieved15, $autoload = 'yes');  
           }
     $value15 = get_option( 'adminsp_remove_elementor_widg_dash' );
@@ -259,7 +259,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_sched_transients_clear'])) {
           
-        $recieved16=$_POST['adminsp_sched_transients_clear'];
+        $recieved16=sanitize_text_field($_POST['adminsp_sched_transients_clear']);
             update_option('adminsp_sched_transients_clear', $recieved16, $autoload = 'yes');  
           }
     $value16 = get_option( 'adminsp_sched_transients_clear' );
@@ -275,7 +275,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_shortlink'])) {
           
-        $recieved17=$_POST['adminsp_remove_shortlink'];
+        $recieved17=sanitize_text_field($_POST['adminsp_remove_shortlink']);
             update_option('adminsp_remove_shortlink', $recieved17, $autoload = 'yes');  
           }
     $value17 = get_option( 'adminsp_remove_shortlink' );
@@ -291,7 +291,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_wp_version'])) {
           
-        $recieved18=$_POST['adminsp_remove_wp_version'];
+        $recieved18=sanitize_text_field($_POST['adminsp_remove_wp_version']);
             update_option('adminsp_remove_wp_version', $recieved18, $autoload = 'yes');  
           }
     $value18 = get_option( 'adminsp_remove_wp_version' );
@@ -307,7 +307,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_rsd_link'])) {
           
-        $recieved19=$_POST['adminsp_remove_rsd_link'];
+        $recieved19=sanitize_text_field($_POST['adminsp_remove_rsd_link']);
             update_option('adminsp_remove_rsd_link', $recieved19, $autoload = 'yes');  
           }
     $value19 = get_option( 'adminsp_remove_rsd_link' );
@@ -323,7 +323,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_wlw_link'])) {
           
-        $recieved20=$_POST['adminsp_remove_wlw_link'];
+        $recieved20=sanitize_text_field($_POST['adminsp_remove_wlw_link']);
             update_option('adminsp_remove_wlw_link', $recieved20, $autoload = 'yes');  
           }
     $value20 = get_option( 'adminsp_remove_wlw_link' );
@@ -339,7 +339,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_defer_js'])) {
           
-        $recieved21=$_POST['adminsp_defer_js'];
+        $recieved21=sanitize_text_field($_POST['adminsp_defer_js']);
             update_option('adminsp_defer_js', $recieved21, $autoload = 'yes');  
           }
     $value21 = get_option( 'adminsp_defer_js' );
@@ -355,7 +355,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_emojis'])) {
           
-        $recieved22=$_POST['adminsp_remove_emojis'];
+        $recieved22=sanitize_text_field($_POST['adminsp_remove_emojis']);
             update_option('adminsp_remove_emojis', $recieved22, $autoload = 'yes');  
           }
     $value22 = get_option( 'adminsp_remove_emojis' );
@@ -371,7 +371,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_querystrings'])) {
           
-        $recieved23=$_POST['adminsp_remove_querystrings'];
+        $recieved23=sanitize_text_field($_POST['adminsp_remove_querystrings']);
             update_option('adminsp_remove_querystrings', $recieved23, $autoload = 'yes');  
           }
     $value23 = get_option( 'adminsp_remove_querystrings' );
@@ -387,7 +387,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_disable_xmlrpc'])) {
           
-        $recieved24=$_POST['adminsp_disable_xmlrpc'];
+        $recieved24=sanitize_text_field($_POST['adminsp_disable_xmlrpc']);
             update_option('adminsp_disable_xmlrpc', $recieved24, $autoload = 'yes');  
           }
     $value24 = get_option( 'adminsp_disable_xmlrpc' );
@@ -403,7 +403,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_admin_footer_text'])) {
           
-        $recieved25=$_POST['adminsp_remove_admin_footer_text'];
+        $recieved25=sanitize_text_field($_POST['adminsp_remove_admin_footer_text']);
             update_option('adminsp_remove_admin_footer_text', $recieved25, $autoload = 'yes');  
           }
     $value25 = get_option( 'adminsp_remove_admin_footer_text' );
@@ -419,7 +419,7 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_remove_sworg_prefetch'])) {
           
-        $recieved26=$_POST['adminsp_remove_sworg_prefetch'];
+        $recieved26=sanitize_text_field($_POST['adminsp_remove_sworg_prefetch']);
             update_option('adminsp_remove_sworg_prefetch', $recieved26, $autoload = 'yes');  
           }
     $value26 = get_option( 'adminsp_remove_sworg_prefetch' );
