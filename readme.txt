@@ -16,7 +16,7 @@ This plugin drastically improve loading time for your WordPress admin dashboard 
 * Moves JQuery to Footer for fast loading.
 * Reduces number of queried fields.
 * Removes Admin Widgets from Admin Dashboard.
-* Schedukes daily optimization of Database.
+* Schedules daily optimization of Database.
 * Turns Template Editor off.
 * Limits the rate of WordPress Heartbeat API.
 * Turns off Jetpack promotions.
