@@ -1,10 +1,10 @@
 === Admin Speedo ===
 Contributors: rajinsharwar
-Tags: slow, slow-admin-dashboard, slow-dashboard, optimize, speed, speed-up
+Tags: slow, slow-admin-dashboard, slow-dashboard, optimize, speed, speed-up, minify, cache, admin, html, css, js
 Requires at least: 3.9
 Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 2.2.2
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,8 @@ We haven't yet tested our plugin fully with multi-sites. But you can try it out 
 
 == Changelog ==
 
+= 2.3.0 (2022-12-10) =
+- NEW FEATURE: Added option to minify HTML, CSS and JS in the admin Dashboard.
 = 2.2.2 (2022-12-10) =
 - Optimizing the Remove Widgets feature.
 = 2.2.1 (2022-12-10) =

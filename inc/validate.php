@@ -88,3 +88,6 @@ if ( !isset( get_option( 'adminsp_remove_sworg_prefetch' )['no'] ) ) {
 if ( !isset( get_option( 'adminsp_optimize_database_daily' )['no'] ) ) {
     add_option ('adminsp_optimize_database_daily', 'no');
 }
+if ( !isset( get_option( 'adminsp_minify_html_css_js' )['no'] ) ) {
+    add_option ('adminsp_minify_html_css_js', 'no');
+}

@@ -445,7 +445,24 @@ function admin_speedo_settings(){
     checked( esc_attr( $value27 ), 'yes' );
     ?> value='yes'> <?php 
     esc_attr_e( 'Schedule optimization of Database Daily' );
-    ?></label>
+    ?>
+    </br>
+    </br>
+    <?php
+    if(!empty($_POST['adminsp_minify_html_css_js'])) {
+          
+        $recieved28=sanitize_text_field($_POST['adminsp_minify_html_css_js']);
+            update_option('adminsp_minify_html_css_js', $recieved28, $autoload = 'yes');  
+          }
+    $value28 = get_option( 'adminsp_minify_html_css_js' );
+    ?>
+    <input type='hidden' name='adminsp_minify_html_css_js' value='no'>
+    <label><input type='checkbox' name='adminsp_minify_html_css_js' <?php 
+    checked( esc_attr( $value28 ), 'yes' );
+    ?> value='yes'> <?php 
+    esc_attr_e( 'Minify HTML, CSS and JS of the Admin dashboard' );
+    ?>
+    </label>
     </label>
       <div>
       <?php submit_button(); ?>

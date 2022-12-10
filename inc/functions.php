@@ -357,3 +357,25 @@ add_action('wp', 'adminsp_schedule_database_optimization');
 add_action('adminsp_wp_optimize_database', 'adminsp_optimize_database');
 }
 
+// Minify HTML, CSS and JS
+if ((get_option('adminsp_optimize_html_css_js')) == 'yes') {
+function adminsp_minify_html_output( $output ) {
+    if ( is_admin() ) {
+        return $output;
+    }
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+    $output = preg_replace( $search, $replace, $output );
+    return $output;
+}
+add_filter( 'wp_loaded', 'adminsp_minify_html_output' );
+}
