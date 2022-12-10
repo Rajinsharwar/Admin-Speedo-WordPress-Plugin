@@ -98,22 +98,19 @@ add_filter('jetpack_show_promotions', '__return_false', 20);
 // Disabling External HTTP API calls in WordPress Backend
 
 if ((get_option('adminsp_turn_off_ext_http_calls')) == 'yes') {
-add_action( 'muplugins_loaded', 'adminsp_block_external_if_not_dashboard' );
-function adminsp_block_external_if_not_dashboard() {
 
-    /* bug out conditions */
-    if ( wp_doing_ajax() ) {return;}
-    if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {return;}
-    if ( !is_admin() ) {return;}
-    if ( isset( $_REQUEST['page'] ) ) {return;}
-    if ( '/wp-admin/' === substr( $_SERVER['REQUEST_URI'], -10, 10 ) ) {return;}
-
-    /* block access to external HTTP requests */
-    if ( !defined( 'WP_HTTP_BLOCK_EXTERNAL' ) && !defined( 'WP_ACCESSIBLE_HOSTS' ) ) {
-        define( 'WP_HTTP_BLOCK_EXTERNAL', true );
-        define( 'WP_ACCESSIBLE_HOSTS', 'api.wordpress.org' );
+add_filter('http_request_host_is_external', 'adminsp_block_external_requests', 10, 2);
+function adminsp_block_external_requests($bool, $url) {
+  if (is_admin()) {
+    $site_url = get_site_url();
+    $home_url = get_home_url();
+    if (strpos($url, $site_url) === false && strpos($url, $home_url) === false) {
+      return false;
     }
+  }
+  return $bool;
 }
+
 }
 
 //Blocking the unwanted admin notices
