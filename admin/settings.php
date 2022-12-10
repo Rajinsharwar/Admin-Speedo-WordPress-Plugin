@@ -435,14 +435,14 @@ function admin_speedo_settings(){
     <?php
     if(!empty($_POST['adminsp_optimize_database_daily'])) {
           
-        $recieved2=sanitize_text_field($_POST['adminsp_optimize_database_daily']);
-            update_option('adminsp_optimize_database_daily', $recieved2, $autoload = 'yes');  
+        $recieved27=sanitize_text_field($_POST['adminsp_optimize_database_daily']);
+            update_option('adminsp_optimize_database_daily', $recieved27, $autoload = 'yes');  
           }
-    $value2 = get_option( 'adminsp_optimize_database_daily' );
+    $value27 = get_option( 'adminsp_optimize_database_daily' );
     ?>
     <input type='hidden' name='adminsp_optimize_database_daily' value='no'>
     <label><input type='checkbox' name='adminsp_optimize_database_daily' <?php 
-    checked( esc_attr( $value2 ), 'yes' );
+    checked( esc_attr( $value27 ), 'yes' );
     ?> value='yes'> <?php 
     esc_attr_e( 'Schedule optimization of Database Daily' );
     ?></label>
