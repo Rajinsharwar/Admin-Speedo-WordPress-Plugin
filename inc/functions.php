@@ -73,12 +73,14 @@ remove_theme_support('block-templates');
 // Limiting WordPress Heartbeat
 
 if ((get_option('adminsp_limit_wp_heartbeat')) == 'yes') {
-function adminsp_optimize_heartbeat_settings( $settings ) {
-    $settings['autostart'] = false;
+
+function adminsp_limit_heartbeat_frequency( $settings ) {
+  if (is_admin()) {
     $settings['interval'] = 60;
-    return $settings;
+  }
+  return $settings;
 }
-add_filter( 'heartbeat_settings', 'adminsp_optimize_heartbeat_settings' );
+add_filter( 'heartbeat_settings', 'adminsp_limit_heartbeat_frequency' );
 
 function adminsp_disable_heartbeat_unless_post_edit_screen() {
     global $pagenow;
@@ -330,3 +332,29 @@ if ((get_option('adminsp_remove_sworg_prefetch')) == 'yes') {
        remove_action( 'wp_head', 'wp_resource_hints', 2, 99 );
     }
 }
+
+///////// Optimize the DB every single day
+
+if ((get_option('adminsp_optimize_database_daily')) == 'yes') {
+function adminsp_optimize_database() {
+  global $wpdb;
+  $tables = $wpdb->get_results('SHOW TABLES', ARRAY_N);
+  foreach ($tables as $table) {
+    $wpdb->query('OPTIMIZE TABLE '.$table[0]);
+  }
+}
+
+// Schedule the optimization function to run periodically
+function adminsp_schedule_database_optimization() {
+  if (!wp_next_scheduled('adminsp_wp_optimize_database')) {
+    wp_schedule_event(time(), 'daily', 'adminsp_wp_optimize_database');
+  }
+}
+
+// Hook into the 'wp' action to schedule the optimization function
+add_action('wp', 'adminsp_schedule_database_optimization');
+
+// Hook into the 'adminsp_wp_optimize_database' action to run the optimization function
+add_action('adminsp_wp_optimize_database', 'adminsp_optimize_database');
+}
+

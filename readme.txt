@@ -1,21 +1,22 @@
 === Admin Speedo ===
 Contributors: rajinsharwar
-Tags: slow, slow admin dashboard, slow dashboard
+Tags: slow, slow-admin-dashboard, slow-dashboard, optimize, speed, speed-up
 Requires at least: 3.9
-Tested up to: 6.1
+Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 AdminSpeedo is a simple method of boosting your WordPress admin dashboard and freeing your site code from unnecessary and not needed items.
-This plugin drastically improve loading time for your WordPress admin dashboard within seconds. It adds most of the recommended optimization functions for your WordPress admin, and reduces bloat of your dashboard. This plugin will also help to reduce bloating of most of the popular plugins like Woocommerce, Elementor and Jetpack. Easily manage the settings of teh plugin form the 'Admin Speedo' admin menu.
+This plugin drastically improve loading time for your WordPress admin dashboard within seconds. It adds most of the recommended optimization functions for your WordPress admin, and reduces bloat of your dashboard. This plugin will also help to reduce bloating of most of the popular plugins like Woocommerce, Elementor and Jetpack. Easily manage the settings of the plugin from the 'Admin Speedo' admin menu.
 
 ==Functions==
 * Moves JQuery to Footer for fast loading.
 * Reduces number of queried fields.
 * Removes Admin Widgets from Admin Dashboard.
+* Schedukes daily optimization of Database.
 * Turns Template Editor off.
 * Limits the rate of WordPress Heartbeat API.
 * Turns off Jetpack promotions.
@@ -80,6 +81,10 @@ We haven't yet tested our plugin fully with multi-sites. But you can try it out 
 
 == Changelog ==
 
+= 2.2.0 (2022-12-10) =
+- Added new feature for daily optimization of database.
+= 2.1.1 (2022-12-10) =
+- Added new feature for blocking the external HTTP requests for admin.
 = 2.1.0 (2022-12-08) =
 - Added new security patch.
 = 2.0.0 (2022-12-07) =

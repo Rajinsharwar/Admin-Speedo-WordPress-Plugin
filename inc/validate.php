@@ -85,3 +85,6 @@ if ( !isset( get_option( 'adminsp_remove_admin_footer_text' )['no'] ) ) {
 if ( !isset( get_option( 'adminsp_remove_sworg_prefetch' )['no'] ) ) {
     add_option ('adminsp_remove_sworg_prefetch', 'no');
 }
+if ( !isset( get_option( 'adminsp_optimize_database_daily' )['no'] ) ) {
+    add_option ('adminsp_optimize_database_daily', 'no');
+}
