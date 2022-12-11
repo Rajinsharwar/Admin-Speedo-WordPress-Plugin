@@ -282,12 +282,16 @@ if ((get_option('adminsp_remove_wlw_link')) == 'yes') {
 //Defer parsing of JS
 if ((get_option('adminsp_defer_js')) == 'yes') {
     function adminsp_defer_parsing_of_js( $url ) {
-        if ( is_user_logged_in() ) return $url; //don't break WP Admin
-        if ( FALSE === strpos( $url, '.js' ) ) return $url;
-        if ( strpos( $url, 'jquery.js' ) ) return $url;
-        return str_replace( ' src', ' defer src', $url );
+        if ( is_admin() ) { // only apply to WordPress admin dashboard
+            if ( FALSE === strpos( $url, '.js' ) ) return $url;
+            if ( strpos( $url, 'jquery.js' ) ) return $url;
+            return str_replace( ' src', ' defer src', $url );
+        } else {
+            return $url; // return original URL for frontend
+        }
     }
     add_filter( 'script_loader_tag', 'adminsp_defer_parsing_of_js', 10 );
+
 }
 
 //Removing Emojis

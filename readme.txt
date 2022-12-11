@@ -1,10 +1,10 @@
 === Admin Speedo ===
 Contributors: rajinsharwar
-Tags: slow, slow-admin-dashboard, slow-dashboard, optimize, speed, speed-up, minify, cache, admin, html, css, js
+Tags: caching, optimize, performance, pagespeed, core web vitals, seo, speed, compress, database cleaner, slow, slow admin dashboard, slow dashboard, minify, admin, html, css, js
 Requires at least: 3.9
 Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,7 @@ This plugin drastically improve loading time for your WordPress admin dashboard 
 * Moves JQuery to Footer for fast loading.
 * Reduces number of queried fields.
 * Removes Admin Widgets from Admin Dashboard.
+* Minifies the HTML, CSS and JS for the WordPress admin Dashboard.
 * Schedules daily optimization of Database.
 * Turns Template Editor off.
 * Limits the rate of WordPress Heartbeat API.
@@ -81,6 +82,8 @@ We haven't yet tested our plugin fully with multi-sites. But you can try it out 
 
 == Changelog ==
 
+= 2.4.1 (2022-12-11) =
+- Fixed the Defer JS functionaility for not breaking unwanted elements.
 = 2.4.0 (2022-12-10) =
 - Added new feature for better feedback collection.
 = 2.3.0 (2022-12-10) =
